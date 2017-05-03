@@ -1,15 +1,15 @@
 require('dotenv').config();
-import { express } from 'express';
+const express = require('express');
 const app = express();
 const port = process.env.PORT || 8001;
-import { mongoose } from 'mongoose';
-import { passport } from 'passport';
-import { flash } from 'connect-flash';
+const mongoose = require('mongoose');
+const passport = require('passport');
+const flash = require('connect-flash');
 
-import { morgan } from 'morgan';
-import { cookieParser } from 'cookie-parser';
-import { bodyParser } from 'body-parser';
-import { session } from 'express-session';
+const morgan = require('morgan');
+const cookieParser = require('cookie-parser');
+const bodyParser = require('body-parser');
+const session = require('express-session');
 
 const configDB = require('./config/database.js');
 
@@ -32,7 +32,7 @@ app.use(passport.session()); // persistent login sessions
 app.use(flash()); // use connect-flash for flash messages stored in session
 
 // routes =====================================================================
-require('.app/routes.js')(app, passport); /* load our routes and pass in our
+require('./app/routes.js')(app, passport); /* load our routes and pass in our
 app and fully configured passport */
 
 // launch =====================================================================
