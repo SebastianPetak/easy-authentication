@@ -36,5 +36,5 @@ require('.app/routes.js')(app, passport); /* load our routes and pass in our
 app and fully configured passport */
 
 // launch =====================================================================
-app.isten(port);
+app.listen(port);
 console.log('listening on port: ' + port);
