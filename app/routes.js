@@ -11,8 +11,12 @@ module.exports = function(app, passport) {
 	});
 
 	// process the login form
-	// app.post('login', do all our passport stuff here);
-
+	app.post('/login', passport.authenticate('local-login', {
+		successRedirect : '/profile', // redirect to the secure profile section
+		failureRedirect : '/login', // redirect back tot he signup page if there
+			// is an error
+		failureFlash : true // allow flash messages
+	}));
 	// SIGNUP ==================================================================
 	app.get('/signup', function(req, res) {
 		// render the page and pass in any flash data if it exists
